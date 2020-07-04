@@ -2,8 +2,8 @@
 swagger: "2.0"
 info:
   version: "3.0"
-  title: Secret API for the Secret Network
-  description: A REST interface for queries, transaction broastcasting, governance and more.
+  title: Secret API by Chain of Secrets
+  description: A REST interface for queries, transaction generation and broastcasting, governance and more.
 tags:
   - name: Transactions
     description: Search, encode, or broadcast transactions.

@@ -2,8 +2,8 @@
 swagger: "2.0"
 info:
   version: "3.0"
-  title: ChainofSecrets.org API for Mainnet Enigma Blockchain
-  description: A REST interface for state queries, transaction generation and broadcasting.
+  title: Secret API for the Secret Network
+  description: A REST interface for queries, transaction broastcasting, governance and more.
 tags:
   - name: Transactions
     description: Search, encode, or broadcast transactions.
@@ -42,7 +42,7 @@ paths:
       description: Information about the connected node
       summary: The properties of the connected node
       tags:
-        - EnigmaCli REST
+        - SecretCLI REST
       produces:
         - application/json
       responses:
@@ -87,7 +87,7 @@ paths:
                         example: 0
                   network:
                     type: string
-                    example: enigma-1
+                    example: secret-1
                   channels:
                     type: string
                   listen_addr:
@@ -253,13 +253,13 @@ paths:
         - in: query
           name: message.action
           type: string
-          description: "transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'. note that each module documents its own events. look for xx_events.md in the corresponding enigma-sdk/docs/spec directory"
+          description: "transaction events such as 'message.action=send' which results in the following endpoint: 'GET /txs?message.action=send'. note that each module documents its own events. look for xx_events.md in the corresponding cosmos-sdk/docs/spec directory"
           x-example: "send"
         - in: query
           name: message.sender
           type: string
-          description: "transaction tags with sender: 'GET /txs?message.action=send&message.sender=enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky'"
-          x-example: "enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky"
+          description: "transaction tags with sender: 'GET /txs?message.action=send&message.sender=secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky'"
+          x-example: "secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky"
         - in: query
           name: page
           description: Page number
@@ -394,7 +394,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+          x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
       responses:
         200:
           description: Account balances
@@ -419,7 +419,7 @@ paths:
           description: Account address in bech32 format
           required: true
           type: string
-          x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+          x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
         - in: body
           name: account
           description: The sender and tx information
@@ -455,7 +455,7 @@ paths:
           description: Account address
           required: true
           type: string
-          x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+          x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
       responses:
         200:
           description: Account information on the blockchain
@@ -488,7 +488,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+        x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
     get:
       summary: Get all delegations from a delegator
       tags:
@@ -547,13 +547,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+        x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Query the current delegation between a delegator and a validator
       tags:
@@ -576,7 +576,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+        x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
     get:
       summary: Get all unbonding delegations from a delegator
       tags:
@@ -636,13 +636,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
+        x-example: secret106qwgxd4geqd6artg6wq4aaje4z7vz4gl9g0ky
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Query all unbonding delegations between a delegator and a validator
       tags:
@@ -697,7 +697,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+        x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
     post:
       summary: Submit a redelegation
       parameters:
@@ -740,7 +740,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+        x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
     get:
       summary: Query all validators that a delegator is bonded to
       tags:
@@ -765,13 +765,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+        x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
       - in: path
         name: validatorAddr
         description: Bech32 ValAddress of Delegator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Query a validator that a delegator is bonded to
       tags:
@@ -826,7 +826,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Query the information from a single validator
       tags:
@@ -849,7 +849,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Get all delegations from a validator
       tags:
@@ -874,7 +874,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Get all unbonding delegations from a validator
       tags:
@@ -963,7 +963,7 @@ paths:
   #          name: validatorPubKey
   #          required: true
   #          in: path
-  #          x-example: enigmavalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
+  #          x-example: secretvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
   #      responses:
   #        200:
   #          description: OK
@@ -1021,7 +1021,7 @@ paths:
           name: validatorAddr
           required: true
           in: path
-          x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+          x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
         - description: ""
           name: UnjailBody
           in: body
@@ -1323,7 +1323,7 @@ paths:
           name: depositor
           required: true
           in: path
-          x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+          x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
       responses:
         200:
           description: OK
@@ -1422,7 +1422,7 @@ paths:
           name: voter
           required: true
           in: path
-          x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+          x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
       responses:
         200:
           description: OK
@@ -1542,7 +1542,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma167w96tdvmazakdwkw2u57227eduula2cy572lf
+        x-example: secret167w96tdvmazakdwkw2u57227eduula2cy572lf
     get:
       summary: Get the total rewards balance from all delegations
       description: Get the sum of all the rewards earned by delegations by a single delegator
@@ -1593,13 +1593,13 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
+        x-example: secret16xyempempp92x9hyzz9wrgf94r6j9h5f06pxxv
       - in: path
         name: validatorAddr
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Query a delegation reward
       description: Query a single delegation reward by a delegator
@@ -1652,7 +1652,7 @@ paths:
         description: Bech32 AccAddress of Delegator
         required: true
         type: string
-        x-example: enigma167w96tdvmazakdwkw2u57227eduula2cy572lf
+        x-example: secret167w96tdvmazakdwkw2u57227eduula2cy572lf
     get:
       summary: Get the rewards withdrawal address
       description: Get the delegations' rewards withdrawal address. This is the address in which the user will receive the reward funds
@@ -1705,7 +1705,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Validator distribution information
       description: Query the distribution information of a single validator
@@ -1729,7 +1729,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Fee distribution outstanding rewards of a single validator
       tags:
@@ -1752,7 +1752,7 @@ paths:
         description: Bech32 OperatorAddress of validator
         required: true
         type: string
-        x-example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+        x-example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
     get:
       summary: Commission and self-delegation rewards of a single validator
       description: Query the commission and self-delegation rewards of validator.
@@ -2007,11 +2007,11 @@ definitions:
   Address:
     type: string
     description: bech32 encoded address
-    example: enigma1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
+    example: secret1depk54cuajgkzea6zpgkq36tnjwdzv4afc3d27
   ValidatorAddress:
     type: string
     description: bech32 encoded address
-    example: enigmavaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
+    example: secretvaloper1hscf4cjrhzsea5an5smt4z9aezhh4sf59pnhrd
   Coin:
     type: object
     properties:
@@ -2129,7 +2129,7 @@ definitions:
     properties:
       chain_id:
         type: string
-        example: enigma-1
+        example: secret-1
       height:
         type: number
         example: 1
@@ -2253,14 +2253,14 @@ definitions:
     properties:
       from:
         type: string
-        example: "enigma1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc"
+        example: "secret1g9ahr6xhht5rmqven628nklxluzyv8z9jqjcmc"
         description: Sender address or Keybase name to generate a transaction
       memo:
         type: string
-        example: "Sent via Enigma"
+        example: "Sent via secret"
       chain_id:
         type: string
-        example: "enigma-Hub"
+        example: "secret-1"
       account_number:
         type: string
         example: "0"
@@ -2288,7 +2288,7 @@ definitions:
         $ref: "#/definitions/ValidatorAddress"
       pub_key:
         type: string
-        example: enigmavalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
+        example: secretvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
       voting_power:
         type: string
         example: "1000"
@@ -2367,7 +2367,7 @@ definitions:
         $ref: "#/definitions/ValidatorAddress"
       consensus_pubkey:
         type: string
-        example: enigmavalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
+        example: secretvalconspub1zcjduepq0vu2zgkgk49efa0nqwzndanq5m4c7pa3u4apz4g2r9gspqg6g9cs3k9cuf
       jailed:
         type: boolean
       status:

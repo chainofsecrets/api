@@ -1,5 +1,5 @@
 # api.chainofsecrets.org
-Swagger Interface for Enigma Blockchain
+Swagger Interface for Secret Network
 
 
 

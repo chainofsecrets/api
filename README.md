@@ -1,4 +1,4 @@
-# api.chainofsecrets.org
+# secretapi.io
 Swagger Interface for Secret Network
 
 

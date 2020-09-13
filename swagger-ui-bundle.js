@@ -7775,7 +7775,7 @@
             return e.getIn(["scheme", t, n]) || e.getIn(["scheme", "_defaultScheme"]) || o || ""
         };
         t.canExecuteScheme = function(e, t, n) {
-            return ["http"].indexOf(I(e, t, n)) > -1
+            return ["http", "https"].indexOf(I(e, t, n)) > -1
         }, t.validateBeforeExecute = function(e, t) {
             t = t || [];
             var n = !0;

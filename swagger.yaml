@@ -32,7 +32,7 @@ tags:
     description: Query app version
 schemes:
   - https
-host: api-node.chainofsecrets.org
+host: api.secretapi.io
 securityDefinitions:
   kms:
     type: basic
